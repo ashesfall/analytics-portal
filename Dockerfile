@@ -1,14 +1,12 @@
 FROM apache/superset
 
-# Switching to root to install the required packages
 USER root
-
-# Install Athena suport
 RUN pip install "PyAthena>1.2.0"
+RUN pip install awswrangler
+RUN mkdir /backups ; chmod 777 /backups
 
-# Switching back to using the `superset` user
 USER superset
-
+COPY scripts/dashboard_backup.py /dashboard_backup.py
 COPY scripts/init.sh /init.sh
 
 ENTRYPOINT /init.sh
