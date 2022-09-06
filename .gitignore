@@ -7,6 +7,11 @@
 # BlueJ files
 *.ctxt
 
+# Terraform
+**/*.tfvars
+**/.terraform**
+**.tfstate**
+
 # Package Files #
 *.jar
 *.war
