@@ -1,6 +1,4 @@
 #!/bin/sh
-export ADMIN_EMAIL="admin@almostrealism.org"
-export ADMIN_PASSWORD="admin"
 export SUP_WEBSERVER_WORKERS=5
 export SUP_WEBSERVER_PORT=8088
 export SUP_WEBSERVER_TIMEOUT=300
