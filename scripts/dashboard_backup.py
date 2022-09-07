@@ -9,7 +9,7 @@ dashboard_bucket = os.getenv("DASHBOARDS_BUCKET")
 
 if __name__ == '__main__':
     while (True):
-        time.sleep(10 * 60)
+        time.sleep(60 * 60)
 
         print("Exporting dashboard data from superset...")
         subprocess.call(["superset", "export-dashboards", "-f", "/backups/dashboards.zip"])
