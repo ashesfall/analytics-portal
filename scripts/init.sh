@@ -4,6 +4,8 @@ export SUP_WEBSERVER_PORT=8088
 export SUP_WEBSERVER_TIMEOUT=300
 export SUP_WEBSERVER_LOG_LEVEL=info
 
+wget -O /backups/dashboards.zip $DASHBOARDS
+
 superset fab create-admin \
                   --username admin \
                   --firstname Superset \
@@ -12,6 +14,7 @@ superset fab create-admin \
                   --password "$ADMIN_PASSWORD"
 superset db upgrade
 superset init
+superset import-dashboards -f /backups/dashboards.zip
 gunicorn \
       -w ${SUP_WEBSERVER_WORKERS} \
       --timeout ${SUP_WEBSERVER_TIMEOUT} \
