@@ -14,7 +14,7 @@ superset fab create-admin \
                   --password "$ADMIN_PASSWORD"
 superset db upgrade
 superset init
-superset import-dashboards -f /backups/dashboards.zip
+superset import-dashboards --path /backups/dashboards.zip
 gunicorn \
       -w ${SUP_WEBSERVER_WORKERS} \
       --timeout ${SUP_WEBSERVER_TIMEOUT} \
