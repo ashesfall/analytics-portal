@@ -65,5 +65,5 @@ resource "aws_ecs_service" "main" {
   task_definition = aws_ecs_task_definition.definition.arn
   desired_count   = 1
   launch_type     = "EC2"
-  depends_on = [aws_cloudwatch_log_group.main, aws_s3_bucket.dashboards]
+  depends_on = [aws_cloudwatch_log_group.main]
 }
