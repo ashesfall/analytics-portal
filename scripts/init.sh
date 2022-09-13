@@ -14,10 +14,13 @@ superset fab create-admin \
                   --password "$ADMIN_PASSWORD"
 superset db upgrade
 superset init
+
+python /dashboard_download.py
 superset import-dashboards --path /backups/dashboards.zip
+
 gunicorn \
       -w ${SUP_WEBSERVER_WORKERS} \
       --timeout ${SUP_WEBSERVER_TIMEOUT} \
       -b  0.0.0.0:${SUP_WEBSERVER_PORT} \
       --log-level ${SUP_WEBSERVER_LOG_LEVEL} \
-      "superset.app:create_app()" & python /dashboard_backup.py
+      "superset.app:create_app()"

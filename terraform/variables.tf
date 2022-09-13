@@ -50,9 +50,5 @@ variable "tag" {
 }
 
 variable "dashboards_bucket" {
-  description = "A unique name for an S3 bucket to store the dashboards"
-}
-
-variable "dashboards_zip" {
-  description = "The name of the zip file containing the dashboards"
+  description = "A unique name where the dashboards are located"
 }

@@ -46,12 +46,8 @@ resource "aws_ecs_task_definition" "definition" {
                   "value": "${var.admin_password}"
               },
               {
-                  "name": "DASHBOARDS",
-                  "value": "http://${aws_s3_bucket_website_configuration.www.website_endpoint}/dashboards.zip"
-              },
-              {
                   "name": "DASHBOARDS_BUCKET",
-                  "value": "${aws_s3_bucket.dashboards.bucket}"
+                  "value": "${var.dashboards_bucket}"
               },
               {
                   "name": "AWS_DEFAULT_REGION",
