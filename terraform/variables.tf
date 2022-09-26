@@ -52,3 +52,7 @@ variable "tag" {
 variable "dashboards_bucket" {
   description = "A unique name where the dashboards are located"
 }
+
+variable "geojson_s3_url" {
+  description = "The url of the geojson file to import on startup. This must begin with s3://"
+}
