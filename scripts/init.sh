@@ -16,7 +16,7 @@ superset init
 python /dashboard_download.py
 
 echo "Importing GeoJSON to SQLite @ /backups/geo.db"
-geojson-to-sqlite /backups/geo.db features /backups/data.geojson
+geojson-to-sqlite /backups/geo.db features /backups/data.geojson --spatialite
 
 superset import-dashboards --path /backups/dashboards.zip
 

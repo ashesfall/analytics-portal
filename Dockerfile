@@ -8,6 +8,8 @@ RUN mkdir /backups ; chmod 777 /backups
 
 # Required for SQLite
 RUN apt-get update && apt-get -y upgrade && apt-get install -y sqlite3 libsqlite3-dev
+RUN apt-get install -y spatialite-bin
+RUN apt-get install -y libsqlite3-mod-spatialite
 RUN echo "PREVENT_UNSAFE_DB_CONNECTIONS = False" >> /app/superset/config.py
 
 USER superset
@@ -17,6 +19,6 @@ COPY scripts/init.sh /init.sh
 
 # Example to verify, not required
 COPY examples/features.geojson features.geojson
-RUN geojson-to-sqlite /backups/example.db features features.geojson
+RUN geojson-to-sqlite /backups/example.db features features.geojson --spatialite
 
 ENTRYPOINT /init.sh
