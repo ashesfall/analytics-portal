@@ -56,3 +56,7 @@ variable "dashboards_bucket" {
 variable "geojson_s3_url" {
   description = "The url of the geojson file to import on startup. This must begin with s3://"
 }
+
+variable "mapbox_api_key" {
+  description = "The API key to use for MapBox"
+}

@@ -54,6 +54,10 @@ resource "aws_ecs_task_definition" "definition" {
                   "value": "${var.geojson_s3_url}"
               },
               {
+                  "name": "MAPBOX_API_KEY",
+                  "value": "${var.mapbox_api_key}"
+              },
+              {
                   "name": "AWS_DEFAULT_REGION",
                   "value": "${var.region}"
               }
