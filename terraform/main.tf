@@ -50,10 +50,6 @@ resource "aws_ecs_task_definition" "definition" {
                   "value": "${var.dashboards_bucket}"
               },
               {
-                  "name": "GEOJSON_S3_URL",
-                  "value": "${var.geojson_s3_url}"
-              },
-              {
                   "name": "MAPBOX_API_KEY",
                   "value": "${var.mapbox_api_key}"
               },
