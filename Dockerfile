@@ -17,8 +17,4 @@ COPY scripts/dashboard_backup.py /dashboard_backup.py
 COPY scripts/dashboard_download.py /dashboard_download.py
 COPY scripts/init.sh /init.sh
 
-# Example to verify, not required
-COPY examples/features.geojson features.geojson
-RUN geojson-to-sqlite /backups/example.db features features.geojson --spatialite
-
 ENTRYPOINT /init.sh
